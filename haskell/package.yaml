@@ -1,0 +1,6 @@
+dependencies:
+  - base == 4.*
+  - haskell-say
+executables:
+  hello:
+    main: Main.hs
