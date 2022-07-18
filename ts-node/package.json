@@ -4,12 +4,17 @@
   "description": "A simple \"hello world\" program",
   "author": "",
   "license": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "bin": {
+    "hello": "dist/index.js"
+  },
   "scripts": {
-    "build": "[ -d './dist' ] && rm -rf ./dist; tsc",
+    "build": "realpath tsc && tsc",
     "build:watch": "tsc -w",
     "test": "jest --coverage",
-    "test:watch": "jest --watch --verbose"
+    "test:watch": "jest --watch --verbose",
+    "preinstall": "npm run build",
+    "node2nix": "nix-shell -p node2nix --run 'node2nix -14 -d -l package-lock.json'"
   },
   "devDependencies": {
     "@types/jest": "^28.1.5",
