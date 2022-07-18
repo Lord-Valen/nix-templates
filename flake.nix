@@ -9,12 +9,12 @@
       };
 
       ts-node = {
-        path = ./ts-node;
+        path = ./node/ts-node;
         description = "NodeJS TypeScript template, using node2nix";
       };
 
       js-node = {
-        path = ./js-node;
+        path = ./node/js-node;
         description = "NodeJS template, using node2nix";
       };
     };
