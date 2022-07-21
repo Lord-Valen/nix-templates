@@ -3,4 +3,4 @@ dependencies:
   - haskell-say
 executables:
   hello:
-    main: Main.hs
+    main: src/Main.hs
