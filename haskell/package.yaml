@@ -1,6 +1,8 @@
+name: hello
+version: 0.0.0
+source-dirs: src
 dependencies:
   - base == 4.*
   - haskell-say
-executables:
-  hello:
-    main: src/Main.hs
+executable:
+  main: Main.hs
