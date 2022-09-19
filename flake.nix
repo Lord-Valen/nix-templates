@@ -10,11 +10,6 @@
           description = "Haskell template, using cabal2nix";
         };
 
-        di-node = {
-          path = path { path = ./node/di-node; name = "diNodeTemplate"; };
-          description = "NodeJS Dependency Injection template, using node2nix";
-        };
-
         ts-node = {
           path = path { path = ./node/ts-node; name = "tsNodeTemplate"; };
           description = "NodeJS TypeScript template, using node2nix";

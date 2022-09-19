@@ -1,10 +1,16 @@
-#!/usr/bin/env node
+#! usr/bin/env node
 
-import { App } from "./App";
+import "reflect-metadata";
 
-async function run() {
-    const app = new App();
+import { Container } from "inversify";
+import { IApp } from "./interfaces.js";
+import { bindings } from "./bindings.js";
+
+async function init() {
+    const container = new Container();
+    container.loadAsync(bindings);
+    const app = container.get(IApp);
     app.run();
 }
 
-run();
+init();

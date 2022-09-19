@@ -1,1 +1,0 @@
-export { IAppService } from "./app";

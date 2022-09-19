@@ -7,3 +7,5 @@ yarn-error.log*
 *.tsbuildinfo
 .npm
 .eslintcache
+.direnv
+result

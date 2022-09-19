@@ -1,15 +1,17 @@
+import "reflect-metadata";
+
 import { Container } from "inversify";
-import { AppModule } from "./app.module";
-import { IAppService } from "./interfaces";
+import { bindings } from "../bindings.js";
+import { IApp } from "../interfaces.js";
 
 describe("Hello", () => {
     let container: Container;
-    let sut: IAppService;
+    let sut: IApp;
 
     beforeAll(() => {
         container = new Container;
-        container.load(new AppModule)
-        sut = container.get(IAppService);
+        container.loadAsync(bindings)
+        sut = container.get(IApp);
     })
 
     beforeEach(() => {

@@ -1,9 +1,9 @@
 import { injectable } from "inversify";
-import { IAppService } from "./interfaces";
+import { IApp } from "../interfaces.js";
 
 @injectable()
-export class AppService extends IAppService {
-    async run(): Promise<void> {
+export class App extends IApp {
+    public async run(): Promise<void> {
         const message: string = "Hello, World!";
 
         console.log(message);
