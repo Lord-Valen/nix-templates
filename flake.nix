@@ -10,14 +10,9 @@
           description = "Haskell template, using cabal2nix";
         };
 
-        ts-node = {
-          path = path { path = ./node/ts-node; name = "tsNodeTemplate"; };
+        node = {
+          path = path { path = ./node; name = "tsNodeTemplate"; };
           description = "NodeJS TypeScript template, using node2nix";
-        };
-
-        js-node = {
-          path = path { path = ./node/js-node; name = "jsNodeTemplate"; };
-          description = "NodeJS template, using node2nix";
         };
 
         rust = {
