@@ -70,11 +70,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1663323895,
-        "narHash": "sha256-ZmI9C8HNVz2w3OnB79WR/LIgVEY8tDnR8tEPi3hMiJk=",
+        "lastModified": 1663716058,
+        "narHash": "sha256-VT/JDqI/OHr68fVcOl4dr+ob2GPAKQIIG9FATr+0b0U=",
         "owner": "nix-community",
         "repo": "dream2nix",
-        "rev": "25be741ec92c77b8308ca6a7ab89593fe37b6542",
+        "rev": "b54f6403f4e0b4696f0502fbf4ead24d874fadd4",
         "type": "github"
       },
       "original": {
@@ -186,12 +186,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1657888067,
-        "narHash": "sha256-GnwJoFBTPfW3+mz7QEeJEEQ9OMHZOiIJ/qDhZxrlKh8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "65fae659e31098ca4ac825a6fef26d890aaf3f4e",
-        "type": "github"
+        "lastModified": 0,
+        "narHash": "sha256-jja7QQRZQ7fH9/WhdMLwT08l62Z8vWee+e+VpFy0ikA=",
+        "path": "/nix/store/dqk47bh3y6p9gads9m12r7q6zr67zqgj-source",
+        "type": "path"
       },
       "original": {
         "id": "nixpkgs",
