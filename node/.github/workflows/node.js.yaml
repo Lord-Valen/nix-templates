@@ -2,9 +2,13 @@ name: Node.js CI
 
 on:
   push:
-    branches: [main]
+    branches:
+      - master
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - master
+      - main
 
 jobs:
   build:
@@ -14,7 +18,7 @@ jobs:
       - name: NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: "14.x"
+          node-version: "18.x"
           cache: "npm"
       - run: npm run build --if-present
       - run: npm test
