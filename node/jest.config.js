@@ -1,22 +1,20 @@
 export default {
   extensionsToTreatAsEsm: [".ts"],
   moduleNameMapper: {
-    "^(\\.{1,2}/.*)\\.js$": "$1"
+    "^(\\.{1,2}/.*)\\.js$": "$1",
   },
   transform: {
-    '\\.tsx?$': [
-      'ts-jest',
+    "\\.tsx?$": [
+      "ts-jest",
       {
         useESM: true,
         astTransformers: {
-          before: [
-            'node_modules/ts-jest-mock-import-meta'
-          ]
+          before: ["node_modules/ts-jest-mock-import-meta"],
         },
         diagnostics: {
-          ignoreCodes: [1343]
-        }
-      }
-    ]
-  }
-}
+          ignoreCodes: [1343],
+        },
+      },
+    ],
+  },
+};

@@ -1,32 +1,22 @@
 {
-  "compilerOptions": {
-    "outDir": "dist",
-    "module": "Node16",
-    "moduleResolution": "Node16",
-    "moduleDetection": "force",
-    "target": "ES2020",
-    "lib": [
-      "ES2020",
-      "dom"
-    ],
-    "types": [
-      "reflect-metadata",
-      "jest",
-    ],
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "declaration": true,
-    "declarationMap": true,
-    "strict": true,
-    "noImplicitReturns": true,
-    "skipLibCheck": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "compilerOptions": {
+        "outDir": "dist",
+        "module": "Node16",
+        "moduleResolution": "Node16",
+        "moduleDetection": "force",
+        "target": "ES2020",
+        "lib": ["ES2020", "dom"],
+        "types": ["reflect-metadata", "jest"],
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "declaration": true,
+        "declarationMap": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "skipLibCheck": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
 }
