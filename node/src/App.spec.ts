@@ -1,8 +1,9 @@
 import "reflect-metadata";
 
+import {jest} from "@jest/globals";
 import { Container } from "inversify";
-import { bindings } from "../bindings.js";
-import { IApp } from "../interfaces.js";
+import { bindings } from "./bindings.js";
+import { IApp } from "./interfaces.js";
 
 describe("Hello", () => {
     let container: Container;
@@ -27,7 +28,7 @@ describe("Hello", () => {
     })
 
     test("says hello", () => {
-        const consoleSpy = jest.spyOn(console, 'log');
+        const consoleSpy = jest.spyOn(console, "log");
 
         sut.run();
 

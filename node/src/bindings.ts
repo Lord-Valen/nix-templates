@@ -1,5 +1,5 @@
 import { AsyncContainerModule, interfaces } from "inversify";
-import { App } from "./services/index.js";
+import { App } from "./App.js";
 import { IApp } from "./interfaces.js";
 
 export const bindings = new AsyncContainerModule(

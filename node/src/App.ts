@@ -1,5 +1,5 @@
 import { injectable } from "inversify";
-import { IApp } from "../interfaces.js";
+import { IApp } from "./interfaces.js";
 
 @injectable()
 export class App extends IApp {
