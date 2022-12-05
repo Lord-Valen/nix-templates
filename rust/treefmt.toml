@@ -1,0 +1,16 @@
+[formatter.nix]
+command = "alejandra"
+includes = ["*.nix"]
+
+[formatter.rustfmt]
+command = "rustfmt"
+includes = ["*.rs"]
+
+[formatter.prettier]
+command = "prettier"
+options = ["--write"]
+includes = [
+         "*.json",
+         "*.yaml",
+         "*.md",
+]
