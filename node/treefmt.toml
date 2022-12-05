@@ -1,0 +1,24 @@
+[formatter.nix]
+command = "alejandra"
+includes = ["*.nix"]
+
+[formatter.prettier]
+command = "prettier"
+options = ["--write"]
+includes = [
+         "*.json",
+         "*.yaml",
+         "*.md",
+         "*.tsx?",
+         "*.jsx?"
+]
+
+[formatter.shell]
+command = "shfmt"
+options = [
+        "-s",
+        "-w",
+        "-i",
+        "4",
+]
+includes = ["*.sh"]

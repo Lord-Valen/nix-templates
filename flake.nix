@@ -12,7 +12,7 @@
 
         node = {
           path = path { path = ./node; name = "tsNodeTemplate"; };
-          description = "NodeJS TypeScript template, using node2nix";
+          description = "NodeJS TypeScript template, using dream2nix";
         };
 
         rust = {
