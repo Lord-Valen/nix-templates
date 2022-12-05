@@ -11,6 +11,7 @@ bacon = "2.2.0"
 
 [dependencies]
 ## Neato errors
+# thiserror = "1.0.0"
 color-eyre = "0.6.0"
 
 ## Async runtime
