@@ -2,6 +2,10 @@
 command = "alejandra"
 includes = ["*.nix"]
 
+[formatter.ormolu]
+command = "ormolu"
+includes = ["*.hs"]
+
 [formatter.prettier]
 command = "prettier"
 options = ["--write"]
@@ -12,3 +16,7 @@ includes = [
          "*.tsx?",
          "*.jsx?"
 ]
+
+[formatter.rustfmt]
+command = "rustfmt"
+includes = ["*.rs"]
