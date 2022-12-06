@@ -12,30 +12,34 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, flake-compat }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-        haskPkgs = pkgs.haskellPackages;
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    flake-compat,
+  }:
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+      haskPkgs = pkgs.haskellPackages;
 
-        packageName = throw "You done forgot to put in the dang package name!";
-      in {
-        packages = {
-          default = self.packages.${system}.${packageName};
+      packageName = throw "You done forgot to put in the dang package name!";
+    in {
+      packages = {
+        default = self.packages.${system}.${packageName};
 
-          ${packageName} = haskPkgs.callCabal2nix packageName self { };
-        };
+        ${packageName} = haskPkgs.callCabal2nix packageName self {};
+      };
 
-        devShells.default = haskPkgs.shellFor {
-          packages = p: [ self.packages.${system}.${packageName} ];
-          withHoogle = true;
-          buildInputs = with pkgs; [
-            cabal-install
-            ghcid
-            haskellPackages.haskell-language-server
-          ];
+      devShells.default = haskPkgs.shellFor {
+        packages = p: [self.packages.${system}.${packageName}];
+        withHoogle = true;
+        buildInputs = with pkgs; [
+          cabal-install
+          ghcid
+          haskellPackages.haskell-language-server
+        ];
 
-          shellHook = "export PS1='\\e[1;34mdev > \\e[0m'";
-        };
-      });
+        shellHook = "export PS1='\\e[1;34mdev > \\e[0m'";
+      };
+    });
 }
