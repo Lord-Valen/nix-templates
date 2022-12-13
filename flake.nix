@@ -12,7 +12,7 @@
     flake-utils,
     devshell,
   }:
-    flake-utils.lib.eachDefaultSystem (system: {
+    {
       templates = {
         haskell = {
           path = builtins.path {
@@ -38,7 +38,8 @@
           description = "Rust template, using dream2nix";
         };
       };
-
+    }
+    // flake-utils.lib.eachDefaultSystem (system: {
       devShells.default = let
         pkgs = import nixpkgs {
           inherit system;
