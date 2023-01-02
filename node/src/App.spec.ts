@@ -1,6 +1,5 @@
 import "reflect-metadata";
 
-import { jest } from "@jest/globals";
 import { Container } from "inversify";
 import { bindings } from "./bindings.js";
 import { IApp } from "./interfaces.js";
@@ -23,12 +22,12 @@ describe("Hello", () => {
         container.restore();
     });
 
-    test("is defined", () => {
+    it("is defined", () => {
         expect(sut).toBeDefined();
     });
 
-    test("says hello", () => {
-        const consoleSpy = jest.spyOn(console, "log");
+    it("says hello", () => {
+        const consoleSpy = vi.spyOn(console, "log");
 
         sut.run();
 
