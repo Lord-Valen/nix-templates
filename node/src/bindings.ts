@@ -1,7 +1,6 @@
-import { AsyncContainerModule, interfaces } from "inversify";
-import { App } from "./App.js";
-import { IApp } from "./interfaces.js";
+import { buildProviderModule } from "inversify-binding-decorators";
 
-export const bindings = new AsyncContainerModule(async (bind: interfaces.Bind) => {
-    bind(IApp).to(App);
-});
+export * from "./App.js";
+export * from "./components/index.js";
+
+export const bindings = buildProviderModule();
