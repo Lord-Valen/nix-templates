@@ -37,6 +37,14 @@
           };
           description = "Rust template, using dream2nix";
         };
+
+        rack = {
+          path = builtins.path {
+            path = ./rack;
+            name = "rackTemplate";
+          };
+          description = "VCV Rack plugin template";
+        };
       };
     }
     // flake-utils.lib.eachDefaultSystem (system: {

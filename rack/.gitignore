@@ -1,0 +1,16 @@
+/build
+/dist
+/*.so
+/*.dylib
+/*.dll
+.DS_Store
+cmake-build-debug
+CMakeFiles
+CMakeCache.txt
+
+# Nix crap
+.std
+result
+# nixago: ignore-linked-files
+lefthook.yml
+treefmt.toml
