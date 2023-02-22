@@ -7,7 +7,7 @@
       flake = false;
     };
 
-    nixpkgs.url = "nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
 
     dream2nix = {
@@ -31,7 +31,14 @@
       systems = flake-utils.lib.defaultSystems;
       config.projectRoot = projectRoot;
       source = projectRoot;
-      settings = [{subsystemInfo.nodejs = 18;}];
+      projects = {
+        hello = {
+          name = "hello";
+          subsystem = "nodejs";
+          subsystemInfo.nodejs = 18;
+          translator = "package-lock";
+        };
+      };
     };
   in
     dream2nix.lib.dlib.mergeFlakes [
