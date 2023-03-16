@@ -2,14 +2,23 @@
   description = "VCV Rack plugin template.";
 
   inputs = {
-    std.url = "github:divnix/std";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    std = {
+      url = "github:divnix/std";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    std-data-collection = {
+      url = "github:divnix/std-data-collection";
+      inputs.std.follows = "std";
+    };
   };
 
   outputs = {
+    self,
     std,
-      self,
-      ...
+    ...
   } @ inputs:
     std.growOn {
       inherit inputs;
@@ -24,8 +33,8 @@
         (nixago "configs")
       ];
     }
-      {
-        packages = std.harvest self ["plugin" "packages"];
-        devShells = std.harvest self ["_automation" "devshells"];
-      };
+    {
+      packages = std.harvest self ["plugin" "packages"];
+      devShells = std.harvest self ["_automation" "devshells"];
+    };
 }

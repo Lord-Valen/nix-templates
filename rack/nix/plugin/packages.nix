@@ -9,7 +9,7 @@ in {
     pname = "MyPlugin";
     version = "2.0.0";
 
-    src = std.incl (self) [
+    src = std.incl self [
       "CMakeLists.txt"
       "RackSDK.cmake"
       "plugin.json"

@@ -12,5 +12,7 @@ CMakeCache.txt
 .std
 result
 # nixago: ignore-linked-files
+.editorconfig
+.conform.yaml
 lefthook.yml
 treefmt.toml

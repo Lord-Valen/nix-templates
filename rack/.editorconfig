@@ -3,15 +3,14 @@ root=true
 [*]
 charset=utf-8
 end_of_line=lf
-indent_size=unset
+indent_size=2
 indent_style=space
 insert_final_newline=true
-max_line_length=unset
 trim_trailing_whitespace=true
 
-[*.nix]
-indent_size=2
-max_line_length=120
+[*.md]
+max_line_length=off
+trim_trailing_whitespace=false
 
 [*.{c,cpp,h,hpp}]
 indent_size=4
@@ -19,10 +18,11 @@ max_line_length=120
 
 [*.{diff,patch}]
 end_of_line=unset
+indent_size=unset
 insert_final_newline=unset
 trim_trailing_whitespace=unset
 
-[{LICENSES/**,LICENSE,*.lock,package-lock.json}]
+[{LICENSES/**,LICENSE}]
 charset=unset
 end_of_line=unset
 indent_size=unset

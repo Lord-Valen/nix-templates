@@ -173,17 +173,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1675940568,
-        "narHash": "sha256-epG6pOT9V0kS+FUqd7R6/CWkgnZx2DMT5Veqo+y6G3c=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "6ccc4a59c3f1b56d039d93da52696633e641bc71",
+        "lastModified": 1625557891,
+        "narHash": "sha256-O8/MWsPBGhhyPoPLHZAuoZiiHo9q6FLlEeIDEXuj6T4=",
+        "owner": "divnix",
+        "repo": "blank",
+        "rev": "5a5d2684073d9f563072ed07c871d577a6c614a8",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
+        "owner": "divnix",
+        "repo": "blank",
         "type": "github"
       }
     },
@@ -231,7 +230,8 @@
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
-        "std": "std"
+        "std": "std",
+        "std-data-collection": "std-data-collection"
       }
     },
     "std": {
@@ -255,7 +255,9 @@
         ],
         "n2c": "n2c",
         "nixago": "nixago",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "paisano": "paisano",
         "yants": "yants"
       },
@@ -270,6 +272,27 @@
       "original": {
         "owner": "divnix",
         "repo": "std",
+        "type": "github"
+      }
+    },
+    "std-data-collection": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2",
+        "std": [
+          "std"
+        ]
+      },
+      "locked": {
+        "lastModified": 1676163535,
+        "narHash": "sha256-xofkWLBqU4zj5vzJhWor2Z9CyPGKt7UGkTchsCT48Po=",
+        "owner": "divnix",
+        "repo": "std-data-collection",
+        "rev": "f713d81a6197e1b0854fb201cc7acde5ef9e93d4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "divnix",
+        "repo": "std-data-collection",
         "type": "github"
       }
     },
