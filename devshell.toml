@@ -1,8 +1,0 @@
-[devshell]
-packages = [
-"treefmt",
-"alejandra",
-"ormolu",
-"rustfmt",
-"editorconfig-checker"
-]
