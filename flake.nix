@@ -27,7 +27,7 @@
       cellsFrom = ./cells;
       cellBlocks = with std.blockTypes; [
         (devshells "devshells")
-        (data "templates")
+        (functions "templates")
       ];
     }
     {

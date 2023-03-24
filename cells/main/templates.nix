@@ -1,33 +1,26 @@
 {
+  inputs,
+  cell,
+}: let
+  inherit (inputs) self;
+in {
   haskell = {
-    path = builtins.path {
-      path = ./haskell;
-      name = "haskellTemplate";
-    };
+    path = self + "/haskell";
     description = "Haskell template, using cabal2nix";
   };
 
   node = {
-    path = builtins.path {
-      path = ./node;
-      name = "tsNodeTemplate";
-    };
+    path = self + "/node";
     description = "NodeJS TypeScript template, using dream2nix";
   };
 
   rack = {
-    path = builtins.path {
-      path = ./rack;
-      name = "rackTemplate";
-    };
+    path = self + "/rack";
     description = "VCV Rack plugin template";
   };
 
   rust = {
-    path = builtins.path {
-      path = ./rust;
-      name = "rustTemplate";
-    };
+    path = self + "/rust";
     description = "Rust template, using dream2nix";
   };
 }
