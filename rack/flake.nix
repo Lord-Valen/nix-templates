@@ -12,6 +12,7 @@
     std-data-collection = {
       url = "github:divnix/std-data-collection";
       inputs.std.follows = "std";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -22,19 +23,18 @@
   } @ inputs:
     std.growOn {
       inherit inputs;
-      # Limited by the current means of acquiring the Rack SDK
-      # Care to do better? DO IT!
-      systems = ["x86_64-linux"];
+      systems = ["x86_64-linux" "x86_64-darwin" "aarch64-darwin"];
 
       cellsFrom = ./nix;
       cellBlocks = with std.blockTypes; [
         (installables "packages")
         (devshells "devshells")
         (nixago "configs")
+        (functions "toolchain")
       ];
     }
     {
-      packages = std.harvest self ["plugin" "packages"];
-      devShells = std.harvest self ["_automation" "devshells"];
+      packages = std.harvest self ["repo" "packages"];
+      devShells = std.harvest self ["repo" "devshells"];
     };
 }

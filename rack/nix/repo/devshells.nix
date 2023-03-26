@@ -6,8 +6,8 @@
   lib = inputs.nixpkgs.lib // builtins;
 in
   lib.mapAttrs (_: std.lib.dev.mkShell) {
-    default = {...}: {
-      name = "vcv-prefabs";
+    default = {
+      name = "Pandemonium";
       packages = [];
       commands = [];
       nixago = with cell.configs;
@@ -18,6 +18,7 @@ in
         ++ (with inputs.std-data-collection.data.configs; [
           conform
           lefthook
+          clangd
         ]);
     };
   }

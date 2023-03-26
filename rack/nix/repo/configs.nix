@@ -36,4 +36,15 @@ in
         };
       };
     };
+
+    clangd = std.lib.dev.mkNixago {
+      data.CompileFlags = {
+        Add = [
+          "-I${cell.toolchain.rack-sdk}/include"
+          "-I${cell.toolchain.rack-sdk}/dep/include"
+        ];
+      };
+      output = ".clangd";
+      format = "yaml";
+    };
   }
