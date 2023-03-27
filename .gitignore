@@ -1,5 +1,6 @@
 *.log
 .direnv
+.std
 
 # nixago: ignore-linked-files
 .conform.yaml
