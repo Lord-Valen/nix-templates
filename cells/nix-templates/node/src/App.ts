@@ -3,9 +3,9 @@ import { IApp } from "./interfaces.js";
 
 @provide(IApp)
 export class App {
-    public async run(): Promise<void> {
-        const message: string = "Hello, World!";
+  public async run(): Promise<void> {
+    const message: string = "Hello, World!";
 
-        console.log(message);
-    }
+    console.log(message);
+  }
 }

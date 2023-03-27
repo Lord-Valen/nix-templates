@@ -1,5 +1,8 @@
-{ inputs, cell, }:
-let inherit (inputs) nixpkgs std self;
+{
+  inputs,
+  cell,
+}: let
+  inherit (inputs) nixpkgs std self;
 in {
   default = cell.packages.my-plugin;
   my-plugin = nixpkgs.stdenv.mkDerivation {
@@ -16,8 +19,8 @@ in {
       "vendor"
     ];
 
-    cmakeFlags = [ "-DRACK_SDK_DIR=${inputs.cells.repo.toolchain.rack-sdk}" ];
+    cmakeFlags = ["-DRACK_SDK_DIR=${inputs.cells.repo.toolchain.rack-sdk}"];
 
-    buildInputs = [ nixpkgs.cmake ];
+    buildInputs = [nixpkgs.cmake];
   };
 }
