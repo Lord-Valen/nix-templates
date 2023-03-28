@@ -8,7 +8,19 @@
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs";
-    flake-utils.url = "github:numtide/flake-utils";
+
+    std = {
+      url = "github:divnix/std";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    std-data-collection = {
+      url = "github:divnix/std-data-collection";
+      inputs = {
+        std.follows = "std";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
 
     dream2nix = {
       url = "github:nix-community/dream2nix";
@@ -17,52 +29,23 @@
   };
 
   outputs = {
-    nixpkgs,
-    flake-utils,
-    dream2nix,
+    self,
+    std,
     ...
-  }: let
-    projectRoot = builtins.path {
-      path = ./.;
-      name = "projectRoot";
+  } @ inputs:
+    std.growOn {
+      inherit inputs;
+      cellsFrom = self + "/nix";
+      cellBlocks = with std.blockTypes; [
+        (installables "packages")
+        (devshells "devshells")
+        (functions "toolchain")
+        (nixago "configs")
+        (functions "lib")
+      ];
+    }
+    {
+      packages = std.harvest self ["app" "packages"];
+      devShells = std.harvest self ["repo" "devshells"];
     };
-
-    d2n-flake = dream2nix.lib.makeFlakeOutputs {
-      systems = flake-utils.lib.defaultSystems;
-      config.projectRoot = projectRoot;
-      source = projectRoot;
-      projects = {
-        hello = {
-          name = "hello";
-          subsystem = "nodejs";
-          subsystemInfo.nodejs = 18;
-          translator = "package-lock";
-        };
-      };
-    };
-  in
-    dream2nix.lib.dlib.mergeFlakes [
-      d2n-flake
-      (flake-utils.lib.eachDefaultSystem (
-        system: let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in {
-          devShells = {
-            default = d2n-flake.devShells.${system}.default.overrideAttrs (old: {
-              buildInputs =
-                old.buildInputs
-                ++ [
-                  # Formatters
-                  pkgs.treefmt
-                  pkgs.alejandra
-                  pkgs.nodePackages.prettier
-
-                  # Lint
-                  pkgs.editorconfig-checker
-                ];
-            });
-          };
-        }
-      ))
-    ];
 }
