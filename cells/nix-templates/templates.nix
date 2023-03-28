@@ -12,7 +12,8 @@
 in
   mkTemplates {
     haskell = "Haskell template";
-    node = "NodeJS TypeScript template, using dream2nix";
+    nix = "Nix library template";
+    node = "NodeJS TypeScript template";
     rack = "VCV Rack plugin template";
-    rust = "Rust template, using dream2nix";
+    rust = "Rust template";
   }
