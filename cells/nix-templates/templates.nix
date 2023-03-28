@@ -5,7 +5,7 @@
   lib = inputs.nixpkgs.lib // builtins;
   mkTemplates = templates:
     lib.mapAttrs (name: value: {
-      path = "./" + toString name;
+      path = ./${name};
       description = value;
     })
     templates;
