@@ -32,6 +32,6 @@
     }
     {
       templates = std.pick self ["nix-templates" "templates"];
-      devShells = std.harvest self ["repo" "devshells"];
+      devShells = std.harvest self ["devshells" "devshells"];
     };
 }
