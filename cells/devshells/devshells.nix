@@ -17,7 +17,7 @@ in
         {package = nix-init;}
         {package = prefetch-npm-deps;}
         {package = prefetch-yarn-deps;}
-        {package = nix-prefetch-universal;}
+        {package = nix-universal-prefetch;}
       ];
       nixago = [];
     };
