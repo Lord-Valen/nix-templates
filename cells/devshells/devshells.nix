@@ -2,10 +2,11 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs;
-  lib = nixpkgs.lib // builtins;
+  inherit (inputs) nixpkgs std;
+  inherit (nixpkgs) lib;
+  inherit (std.lib) dev;
 in
-  lib.mapAttrs (_: inputs.std.lib.dev.mkShell) {
+  lib.mapAttrs (_: dev.mkShell) {
     nixpkgs = {
       name = "nixpkgs";
       commands = with nixpkgs; [

@@ -1,8 +1,12 @@
 *.log
 .direnv
 .std
+.data
 
 # nixago: ignore-linked-files
+/.conform.yaml
+/lefthook.yml
+/treefmt.toml
 .conform.yaml
 lefthook.yml
 treefmt.toml

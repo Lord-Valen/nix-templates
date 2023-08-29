@@ -2,16 +2,19 @@
   inputs,
   cell,
 }: let
-  lib = inputs.nixpkgs.lib // builtins;
+  inherit (inputs) nixpkgs std;
+  inherit (nixpkgs) lib;
+  inherit (std.lib) dev cfg;
+  inherit (cell) configs;
 in
-  lib.mapAttrs (_: inputs.std.lib.dev.mkShell) {
+  lib.mapAttrs (_: dev.mkShell) {
     default = {
       name = "nix-templates";
-      nixago = with inputs.std-data-collection.data.configs; [
-        treefmt
-        lefthook
-        editorconfig
-        (conform {data = {inherit (inputs) cells;};})
+      nixago = with configs; [
+        (dev.mkNixago cfg.lefthook lefthook)
+        (dev.mkNixago cfg.treefmt treefmt)
+        (dev.mkNixago cfg.conform conform)
+        (dev.mkNixago cfg.editorconfig editorconfig)
       ];
     };
   }

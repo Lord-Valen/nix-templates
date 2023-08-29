@@ -2,17 +2,17 @@
   description = "My nix flake templates, using flake-compat";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/v0.1.0.tar.gz";
 
+    devshell.url = "github:numtide/devshell";
+    nixago.url = "github:nix-community/nixago";
     std = {
       url = "github:divnix/std";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    std-data-collection = {
-      url = "github:divnix/std-data-collection";
-      inputs.std.follows = "std";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        devshell.follows = "devshell";
+        nixago.follows = "nixago";
+      };
     };
   };
 
@@ -26,6 +26,7 @@
 
       cellsFrom = ./cells;
       cellBlocks = with std.blockTypes; [
+        (nixago "configs")
         (devshells "devshells")
         (functions "templates")
       ];
