@@ -9,8 +9,15 @@ in
     nixpkgs = {
       name = "nixpkgs";
       commands = with nixpkgs; [
+        {
+          name = "nom";
+          package = nix-output-monitor;
+        }
         {package = nixpkgs-fmt;}
-        {package = nixpkgs-hammering;}
+        {
+          name = "nixpkgs-hammer";
+          package = nixpkgs-hammering;
+        }
         {package = nixpkgs-lint-community;}
         {package = nixpkgs-review;}
         {package = nix-update;}
