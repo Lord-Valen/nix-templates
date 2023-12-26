@@ -10,3 +10,4 @@
 .conform.yaml
 lefthook.yml
 treefmt.toml
+/.data/
